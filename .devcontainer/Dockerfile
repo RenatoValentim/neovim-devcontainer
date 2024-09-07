@@ -40,5 +40,6 @@ RUN git clone https://github.com/RenatoValentim/dotfiles && \
   mkdir -p $HOME/.config && \
   ln -sf $HOME/dotfiles/config/lazyvim $HOME/.config/nvim && \
   ln -sf $HOME/dotfiles/config/lazygit $HOME/.config/lazygit && \
+  ln -sf $HOME/dotfiles/config/tmux $HOME/.config/tmux && \
   ln -sf $HOME/dotfiles/config/zsh/.zshrc $HOME/.zshrc && \
   ln -sf $HOME/dotfiles/config/.p10k.zsh $HOME/.p10k.zsh

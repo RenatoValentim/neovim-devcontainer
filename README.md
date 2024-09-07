@@ -44,3 +44,8 @@ devcontainer up --workspace-folder . --build-no-cache
 ```bash
 devcontainer exec --workspace-folder . zsh
 ```
+
+## TODOs
+
+- [ ] Fix failure during the first-time startup of `neovim` when installing `cmp-tabnine` (after the initial failure, the plugin works correctly)
+- [ ] Fix failure during the first-time startup of `neovim` when installing `markdown-preview.nvim` (after the initial failure, the plugin works correctly)

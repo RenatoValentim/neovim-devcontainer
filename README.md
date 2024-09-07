@@ -1,5 +1,7 @@
 # Neovim Devcontainer
 
+![Devcontainer Environment](./assets/devenv.png)
+
 <!--toc:start-->
 
 - [Table of Contents](#neovim-devcontainer)

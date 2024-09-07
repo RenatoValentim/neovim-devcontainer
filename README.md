@@ -36,7 +36,7 @@ with essential development tools inside a Docker environment.
 2. Build the devcontainer image:
 
 ```bash
-devcontainer up --workspace-folder . --build
+devcontainer up --workspace-folder . --build-no-cache
 ```
 
 3. Access the container:

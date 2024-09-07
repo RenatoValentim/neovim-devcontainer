@@ -1,6 +1,6 @@
 # Neovim Devcontainer
 
-![Devcontainer Environment](./assets/devenv.png)
+![Devcontainer Environment](./assets/devcontainer.png)
 
 <!--toc:start-->
 

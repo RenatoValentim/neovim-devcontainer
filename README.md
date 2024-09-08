@@ -1,7 +1,6 @@
 # Neovim Devcontainer
 
 ![Devcontainer Environment](./assets/devcontainer.png)
-[Devcontainer Environment](./assets/devcontainer1.mp4)
 
 <!--toc:start-->
 

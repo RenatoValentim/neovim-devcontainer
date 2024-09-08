@@ -2,6 +2,13 @@
 
 ![Devcontainer Environment](./assets/devcontainer.png)
 
+https://github.com/user-attachments/assets/267ddc04-8607-4eb7-a4d3-57ccb6a8d792
+
+https://github.com/user-attachments/assets/2dab7abd-dc7d-41b6-a70b-0943c9b15fb2
+
+https://github.com/user-attachments/assets/a4760da1-9477-42ba-83dd-b1a0ba9eec26
+
+
 <!--toc:start-->
 
 - [Table of Contents](#neovim-devcontainer)

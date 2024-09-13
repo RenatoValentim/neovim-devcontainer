@@ -42,4 +42,5 @@ RUN git clone https://github.com/RenatoValentim/dotfiles && \
   ln -sf $HOME/dotfiles/config/lazygit $HOME/.config/lazygit && \
   ln -sf $HOME/dotfiles/config/tmux $HOME/.config/tmux && \
   ln -sf $HOME/dotfiles/config/zsh/.zshrc $HOME/.zshrc && \
-  ln -sf $HOME/dotfiles/config/.p10k.zsh $HOME/.p10k.zsh
+  ln -sf $HOME/dotfiles/config/.p10k.zsh $HOME/.p10k.zsh && \
+  git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm

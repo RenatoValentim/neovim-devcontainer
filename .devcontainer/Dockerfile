@@ -2,7 +2,7 @@ FROM archlinux:base-devel
 
 ENV SHELL=/bin/zsh \
   TERM=xterm-256color \
-  GOLANG_VERSION=1.23.1 \
+  GOLANG_VERSION=1.23.2 \
   GOROOT=/home/dev/go \
   GOPATH=/home/dev/go/works \
   HOME=/home/dev
@@ -32,10 +32,6 @@ RUN rm -rf $HOME/.local/share/zinit/zinit.git && \
   tar -C $HOME -xzf go${GOLANG_VERSION}.linux-amd64.tar.gz && \
   rm go${GOLANG_VERSION}.linux-amd64.tar.gz
 
-RUN echo "export GOROOT=$GOROOT" >> $HOME/.zshrc && \
-  echo "export GOPATH=$GOPATH" >> $HOME/.zshrc && \
-  echo "export PATH=\$PATH:$GOROOT/bin:$GOPATH/bin" >> $HOME/.zshrc
-
 RUN git clone https://github.com/RenatoValentim/dotfiles && \
   mkdir -p $HOME/.config && \
   ln -sf $HOME/dotfiles/config/lazyvim $HOME/.config/nvim && \
@@ -45,3 +41,16 @@ RUN git clone https://github.com/RenatoValentim/dotfiles && \
   ln -sf $HOME/dotfiles/config/.p10k.zsh $HOME/.p10k.zsh && \
   git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm && \
   git config --global core.editor "nvim"
+
+RUN echo "export GOROOT=$GOROOT" >> $HOME/.zshrc && \
+  echo "export GOPATH=$GOPATH" >> $HOME/.zshrc && \
+  echo "export PATH=\$PATH:$GOROOT/bin:$GOPATH/bin" >> $HOME/.zshrc
+
+RUN git clone https://aur.archlinux.org/yay.git && \
+  cd yay && \
+  makepkg -si --noconfirm && \
+  cd .. && rm -rf yay
+
+RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.12.0 && \
+  echo -e '\n. $HOME/.asdf/asdf.sh' >> $HOME/.zshrc && \
+  echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> $HOME/.zshrc

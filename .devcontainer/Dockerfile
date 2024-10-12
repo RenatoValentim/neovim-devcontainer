@@ -50,7 +50,3 @@ RUN git clone https://aur.archlinux.org/yay.git && \
   cd yay && \
   makepkg -si --noconfirm && \
   cd .. && rm -rf yay
-
-RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.12.0 && \
-  echo -e '\n. $HOME/.asdf/asdf.sh' >> $HOME/.zshrc && \
-  echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> $HOME/.zshrc

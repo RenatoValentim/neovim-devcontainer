@@ -2,7 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/
 {
   "name": "dev",
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "workspaceFolder": "/home/dev",
   "build": {
     "dockerfile": "Dockerfile",
     "context": "."
@@ -13,6 +13,7 @@
   "remoteUser": "dev",
 
   "mounts": [
+    "source=${localEnv:HOME}/Projects/me,target=/home/dev/projects,type=bind,consistency=cached",
     "source=${localEnv:HOME}/.secrets,target=/home/dev/.secrets,type=bind,consistency=cached",
     "source=${localEnv:HOME}/.ssh,target=/home/dev/.ssh,type=bind,readonly",
 

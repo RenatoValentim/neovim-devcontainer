@@ -25,7 +25,7 @@ COPY --from=builder /usr/bin/yay /usr/bin/yay
 
 RUN pacman -Syu --noconfirm && \
   pacman -S --noconfirm base-devel git eza lazygit neovim fish curl unzip tar ripgrep fd \
-  lua luarocks fzf tmux zoxide htop starship debugedit xclip \
+  lua luarocks fzf tmux zoxide htop starship debugedit xclip uv \
   lsof strace iputils net-tools inetutils openssh jq tcpdump iproute2 iftop \
   iotop man-db bash-completion duf glances ncdu lshw && \
   rm -rf /var/cache/pacman/pkg/* && \

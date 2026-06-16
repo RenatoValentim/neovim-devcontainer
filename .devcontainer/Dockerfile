@@ -61,3 +61,5 @@ RUN mkdir -p $HOME/.config/mise && \
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
 
 RUN curl -fsSL https://claude.ai/install.sh | bash
+
+RUN curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh | bash -s -- --only openclaw &&   echo "N" | rtk init --global --claude-md

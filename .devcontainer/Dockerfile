@@ -57,4 +57,4 @@ RUN mkdir -p $HOME/.config/mise && \
   printf '[tools]\ngo = "latest"\nnode = "lts"\npython = "latest"\n' > $HOME/.config/mise/config.toml && \
   $HOME/.local/bin/mise install
 
-RUN $HOME/.local/bin/mise exec -- npm install -g @anthropic-ai/claude-code
+RUN curl -fsSL https://claude.ai/install.sh | bash

@@ -29,13 +29,15 @@ RUN pacman -Syu --noconfirm && \
   lsof strace iputils net-tools inetutils openssh jq tcpdump iproute2 iftop \
   iotop man-db bash-completion duf glances ncdu lshw && \
   rm -rf /var/cache/pacman/pkg/* && \
+  printf '#!/bin/sh\nexit 0\n' > /usr/local/bin/systemctl && \
+  chmod +x /usr/local/bin/systemctl && \
   useradd -m -s /bin/fish dev && \
   echo "dev ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 USER dev
 WORKDIR $HOME
 
-RUN yay -S --noconfirm mise-bin
+RUN mkdir -p $HOME/.local/bin && curl https://mise.run | sh
 
 RUN git clone https://github.com/RenatoValentim/dotfiles && \
   mkdir -p $HOME/.config/fish/conf.d && \
@@ -53,6 +55,6 @@ RUN git clone https://github.com/RenatoValentim/dotfiles && \
 
 RUN mkdir -p $HOME/.config/mise && \
   printf '[tools]\ngo = "latest"\nnode = "lts"\npython = "latest"\n' > $HOME/.config/mise/config.toml && \
-  mise install
+  $HOME/.local/bin/mise install
 
-RUN mise exec -- npm install -g @anthropic-ai/claude-code
+RUN $HOME/.local/bin/mise exec -- npm install -g @anthropic-ai/claude-code

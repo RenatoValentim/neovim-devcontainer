@@ -1,5 +1,7 @@
 FROM archlinux:base-devel AS builder
 
+RUN pacman -Sy --noconfirm git
+
 RUN useradd -m -s /bin/bash builder && \
     echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 

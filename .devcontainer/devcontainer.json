@@ -12,12 +12,20 @@
 
   "remoteUser": "dev",
 
+  "containerEnv": {
+    "DISPLAY": "${localEnv:DISPLAY}"
+  },
+
   "mounts": [
     "source=${localEnv:HOME}/Projects/me,target=/home/dev/projects,type=bind,consistency=cached",
     "source=${localEnv:HOME}/.secrets,target=/home/dev/.secrets,type=bind,consistency=cached",
     "source=${localEnv:HOME}/.ssh,target=/home/dev/.ssh,type=bind,readonly",
 
     "source=/etc/localtime,target=/etc/localtime,type=bind,readonly",
-    "source=/etc/timezone,target=/etc/timezone,type=bind,readonly"
+    "source=/etc/timezone,target=/etc/timezone,type=bind,readonly",
+
+    "source=${localEnv:HOME}/.claude,target=/home/dev/.claude,type=bind,consistency=cached",
+
+    "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind"
   ]
 }

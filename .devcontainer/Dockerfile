@@ -24,8 +24,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 COPY --from=builder /usr/bin/yay /usr/bin/yay
 
 RUN pacman -Syu --noconfirm && \
-  pacman -S --noconfirm git eza lazygit neovim fish curl unzip tar ripgrep fd \
-  lua luarocks fzf tmux zoxide htop starship fakeroot debugedit \
+  pacman -S --noconfirm base-devel git eza lazygit neovim fish curl unzip tar ripgrep fd \
+  lua luarocks fzf tmux zoxide htop starship debugedit xclip \
   lsof strace iputils net-tools inetutils openssh jq tcpdump iproute2 iftop \
   iotop man-db bash-completion duf glances ncdu lshw && \
   rm -rf /var/cache/pacman/pkg/* && \
@@ -49,6 +49,7 @@ RUN git clone https://github.com/RenatoValentim/dotfiles && \
   ln -sf $HOME/dotfiles/config/fish/functions $HOME/.config/fish/functions && \
   for f in $HOME/dotfiles/config/fish/conf.d/*; do ln -sf "$f" $HOME/.config/fish/conf.d/; done && \
   printf 'fish_add_path "$HOME/.devcontainers/bin"\n' > $HOME/.config/fish/conf.d/container.fish && \
+  printf '\n[container]\nsymbol = "󰣇 "\n' >> $HOME/dotfiles/config/fish/starship.toml && \
   ln -sf $HOME/dotfiles/config/lazyvim $HOME/.config/nvim && \
   ln -sf $HOME/dotfiles/config/lazygit $HOME/.config/lazygit && \
   git config --global core.editor "nvim"
@@ -56,5 +57,7 @@ RUN git clone https://github.com/RenatoValentim/dotfiles && \
 RUN mkdir -p $HOME/.config/mise && \
   printf '[tools]\ngo = "latest"\nnode = "lts"\npython = "latest"\n' > $HOME/.config/mise/config.toml && \
   $HOME/.local/bin/mise install
+
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
 
 RUN curl -fsSL https://claude.ai/install.sh | bash

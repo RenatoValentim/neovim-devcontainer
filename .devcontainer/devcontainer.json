@@ -7,13 +7,14 @@
     "dockerfile": "Dockerfile",
     "context": "."
   },
-  "runArgs": ["--network=host"],
+
+  "forwardPorts": [3000, 5173, 8000, 8080],
 
   "remoteUser": "dev",
 
   "mounts": [
-    "source=${localEnv:HOME}/.secrets.zsh,target=/home/dev/.secrets.zsh,type=bind,consistency=cached",
-    "source=${localEnv:HOME}/.ssh,target=/home/dev/.ssh,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.secrets,target=/home/dev/.secrets,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.ssh,target=/home/dev/.ssh,type=bind,readonly",
 
     "source=/etc/localtime,target=/etc/localtime,type=bind,readonly",
     "source=/etc/timezone,target=/etc/timezone,type=bind,readonly"

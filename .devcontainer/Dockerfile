@@ -54,3 +54,5 @@ RUN git clone https://github.com/RenatoValentim/dotfiles && \
 RUN mkdir -p $HOME/.config/mise && \
   printf '[tools]\ngo = "latest"\nnode = "lts"\npython = "latest"\n' > $HOME/.config/mise/config.toml && \
   mise install
+
+RUN mise exec -- npm install -g @anthropic-ai/claude-code

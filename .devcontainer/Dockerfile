@@ -62,4 +62,6 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no
 
 RUN curl -fsSL https://claude.ai/install.sh | bash
 
-RUN curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh | bash -s -- --only openclaw &&   echo "N" | rtk init --global --claude-md
+RUN export PATH="$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH" && \
+  curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh | bash -s -- --only openclaw && \
+  echo "N" | rtk init --global --claude-md

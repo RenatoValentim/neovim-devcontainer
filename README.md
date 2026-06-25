@@ -1,6 +1,6 @@
 # devbox
 
-Ambiente de desenvolvimento completo em container (Arch Linux).
+Full-featured development environment in a container (Arch Linux).
 
 <!--toc:start-->
 - [Tools Included](#tools-included)

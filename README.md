@@ -1,35 +1,20 @@
-# Neovim Devcontainer
+# devbox
 
-![Devcontainer Environment](./assets/devcontainer.png)
-
-https://github.com/user-attachments/assets/267ddc04-8607-4eb7-a4d3-57ccb6a8d792
-
-https://github.com/user-attachments/assets/2dab7abd-dc7d-41b6-a70b-0943c9b15fb2
-
-https://github.com/user-attachments/assets/a4760da1-9477-42ba-83dd-b1a0ba9eec26
-
+Ambiente de desenvolvimento completo em container (Arch Linux).
 
 <!--toc:start-->
-
-- [Table of Contents](#neovim-devcontainer)
-  - [Tools Included](#tools-included)
-  - [Requirements](#requirements)
-  - [Usage](#usage)
-  <!--toc:end-->
-
-This repository provides my **Devcontainer** setup for Neovim, pre-configured
-with essential development tools inside a Docker environment.
+- [Tools Included](#tools-included)
+- [Requirements](#requirements)
+- [Usage](#usage)
+<!--toc:end-->
 
 ## Tools Included
 
-- **Neovim**
-- **Oh My Zsh** with Powerlevel10k theme.
-- **Golang**
-- **NodeJS**
-- **Python** with Poetry
-- **Lua**
-- Utilities like `ripgrep`, `fd`, `tmux`, `fzf`, `htop`,
-  `lazygit`, `exa`, `jq`...
+- **Shell:** Fish + Starship
+- **Editor:** Neovim + LazyVim
+- **Languages:** Go (latest), Node.js (LTS), Python (latest) via [mise](https://mise.jdx.dev/); Rust via rustup
+- **Dev tools:** Claude Code, lazygit, tmux, fzf, zoxide, ripgrep, fd, eza, jq, uv, xclip
+- **Debug / network:** lsof, strace, tcpdump, iftop, iotop, glances, ncdu, duf, net-tools
 
 ## Requirements
 
@@ -40,7 +25,7 @@ with essential development tools inside a Docker environment.
 
 1. Add the `.devcontainer` folder to the root of your project.
 
-2. Build the devcontainer image:
+2. Build the devcontainer:
 
 ```bash
 devcontainer up --workspace-folder . --build-no-cache
@@ -49,10 +34,11 @@ devcontainer up --workspace-folder . --build-no-cache
 3. Access the container:
 
 ```bash
-devcontainer exec --workspace-folder . zsh
+devcontainer exec --workspace-folder . fish
 ```
 
-## TODOs
+4. After first startup, authenticate Claude:
 
-- [ ] Fix failure during the first-time startup of `neovim` when installing `cmp-tabnine` (after the initial failure, the plugin works correctly)
-- [ ] Fix failure during the first-time startup of `neovim` when installing `markdown-preview.nvim` (after the initial failure, the plugin works correctly)
+```bash
+claude login
+```

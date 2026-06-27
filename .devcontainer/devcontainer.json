@@ -20,7 +20,6 @@
   },
 
   "mounts": [
-    "source=${localEnv:HOME}/Projects/me,target=/home/dev/projects,type=bind,consistency=cached",
     "source=${localEnv:HOME}/.secrets,target=/home/dev/.secrets,type=bind,consistency=cached,readonly",
     "source=${localEnv:HOME}/.ssh,target=/home/dev/.ssh,type=bind,readonly",
     "source=${localEnv:SSH_AUTH_SOCK},target=/ssh-agent,type=bind",
@@ -34,5 +33,5 @@
     "source=/etc/ca-certificates,target=/etc/ca-certificates,type=bind,readonly"
   ],
 
-  "postCreateCommand": "bash $HOME/projects/dotfiles/claude/setup-claude.sh"
+  "postCreateCommand": "bash $HOME/dotfiles/claude/setup-claude.sh"
 }

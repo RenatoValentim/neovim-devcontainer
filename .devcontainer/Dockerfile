@@ -54,6 +54,10 @@ RUN git clone https://github.com/RenatoValentim/dotfiles && \
   ln -sf $HOME/dotfiles/config/lazygit $HOME/.config/lazygit && \
   git config --global core.editor "nvim"
 
+# Bootstrap LazyVim plugins at build time so the first nvim launch is instant
+# (installs and pins every plugin to the committed lazy-lock.json).
+RUN nvim --headless "+Lazy! restore" +qa
+
 RUN mkdir -p $HOME/.config/mise && \
   printf '[tools]\ngo = "latest"\nnode = "lts"\npython = "latest"\n' > $HOME/.config/mise/config.toml && \
   $HOME/.local/bin/mise install
